@@ -299,4 +299,8 @@ app.use((err, _req, res, _next) => {
 })
 
 const port = Number(process.env.PORT || 3001)
-app.listen(port, () => console.log(`✅ StyleVerse API on :${port}`))
+if (process.env.VERCEL !== '1') {
+  app.listen(port, () => console.log(`✅ StyleVerse API on :${port}`))
+}
+
+export default app
