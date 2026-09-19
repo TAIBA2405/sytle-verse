@@ -20,6 +20,7 @@ await initDb().catch((e) => {
   console.error('❌ initDb failed — check DATABASE_URL:', e.message)
 })
 
+app.get('/', (_req, res) => res.json({ ok: true, name: 'StyleVerse API', health: '/api/health' }))
 app.get('/api/health', (_req, res) => res.json({ ok: true, time: new Date().toISOString() }))
 
 // ── Auth (storefront) ───────────────────────────────────────────
